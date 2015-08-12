@@ -24,7 +24,7 @@ using Microsoft.Win32.SafeHandles;
 namespace SharpLib.Win32
 {
 
-    static partial class Function
+    static public partial class Function
     {
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern SafeFileHandle CreateFile(
@@ -58,20 +58,20 @@ namespace SharpLib.Win32
     }
 
 
-    static partial class Macro
+    static public partial class Macro
     {
 
     }
 
 
 
-    static partial class Const
+    static public partial class Const
     {
 
     }
 
     [Flags]
-    enum FileAccess : uint
+    public enum FileAccess : uint
     {
         NONE = 0,
 

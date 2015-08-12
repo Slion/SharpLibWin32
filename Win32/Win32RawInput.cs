@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 namespace SharpLib.Win32
 {
 
-    static partial class Function
+    static public partial class Function
     {
         [DllImport("User32.dll", SetLastError = true)]
 		public extern static bool RegisterRawInputDevices(RAWINPUTDEVICE[] pRawInputDevice, uint uiNumDevices, uint cbSize);
@@ -43,7 +43,7 @@ namespace SharpLib.Win32
     }
 
 
-    static partial class Macro
+    static public partial class Macro
     {
         /// <summary>
         /// Retrieves the input code from wParam in WM_INPUT.
@@ -82,7 +82,7 @@ namespace SharpLib.Win32
 
 
 
-    static partial class Const
+    static public partial class Const
     {
         /// <summary>
         /// Windows Messages
