@@ -25,7 +25,7 @@ using System.Text;
 namespace SharpLib.Win32
 {
 
-    static partial class Function
+    static public partial class Function
     {
         [DllImport("hid.dll", CharSet = CharSet.Unicode)]
         public static extern HidStatus HidP_GetUsagesEx(HIDP_REPORT_TYPE ReportType, ushort LinkCollection, [Out, MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 3)] USAGE_AND_PAGE[] ButtonList, ref uint UsageLength, IntPtr PreparsedData, [MarshalAs(UnmanagedType.LPArray)] byte[] Report, uint ReportLength);
@@ -78,14 +78,14 @@ namespace SharpLib.Win32
     }
 
 
-    static partial class Macro
+    static public partial class Macro
     {
 
 
     }
 
 
-    static partial class Const
+    static public partial class Const
     {
 
 
