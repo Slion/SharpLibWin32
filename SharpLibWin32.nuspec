@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SharpLibWin32</id>
-        <version>0.0.3</version>
+        <version>0.0.4</version>
         <title>C# Win32 Library</title>
         <authors>Stéphane Lenclud</authors>
         <owners>Stéphane Lenclud</owners>
@@ -10,7 +10,11 @@
         <projectUrl>https://sharplibwin32.codeplex.com/</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>C# Win32 Library.</description>
-        <releaseNotes>v0.0.3
+        <releaseNotes>v0.0.4
+Adding WMs and IOCTLs constants.
+Adding DeviceIoControl.
+
+v0.0.3
 Fixing protection level.
 
 v0.0.2
