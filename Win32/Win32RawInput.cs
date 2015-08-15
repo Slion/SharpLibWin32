@@ -84,13 +84,6 @@ namespace SharpLib.Win32
 
     static public partial class Const
     {
-        /// <summary>
-        /// Windows Messages
-        /// </summary>
-        public const int WM_KEYDOWN = 0x0100;
-        public const int WM_INPUT = 0x00FF;
-
-
         //
         public const int RID_INPUT = 0x10000003;
         public const int RID_HEADER = 0x10000005;
