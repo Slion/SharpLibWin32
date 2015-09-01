@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using Microsoft.Win32.SafeHandles;
 
 namespace SharpLib.Win32
 {
@@ -65,7 +66,7 @@ namespace SharpLib.Win32
         [System.Runtime.InteropServices.DllImportAttribute("kernel32.dll", EntryPoint = "DeviceIoControl")]
         [return: System.Runtime.InteropServices.MarshalAsAttribute(System.Runtime.InteropServices.UnmanagedType.Bool)]
         public static extern bool DeviceIoControl(
-            [System.Runtime.InteropServices.InAttribute()] System.IntPtr hDevice,
+            [System.Runtime.InteropServices.InAttribute()] SafeFileHandle hDevice,
             uint dwIoControlCode,
             [System.Runtime.InteropServices.InAttribute()] System.IntPtr lpInBuffer,
             uint nInBufferSize,
