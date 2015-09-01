@@ -5,7 +5,9 @@ using System.Text;
 
 namespace SharpLib.Win32
 {
-
+    /// <summary>
+    /// 
+    /// </summary>
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Explicit)]
     public struct OVERLAPPED
     {
@@ -35,6 +37,18 @@ namespace SharpLib.Win32
         [FieldOffset(16)]
         public System.IntPtr hEvent;
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct PREVENT_MEDIA_REMOVAL
+    {
+
+        /// BOOLEAN->BYTE->unsigned char
+        public byte PreventMediaRemoval;
+    }
+
 
     public partial class Function
     {
