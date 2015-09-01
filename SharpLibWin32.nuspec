@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SharpLibWin32</id>
-        <version>0.0.5</version>
+        <version>0.0.6</version>
         <title>C# Win32 Library</title>
         <authors>Stéphane Lenclud</authors>
         <owners>Stéphane Lenclud</owners>
@@ -10,7 +10,10 @@
         <projectUrl>https://sharplibwin32.codeplex.com/</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>C# Win32 Library.</description>
-        <releaseNotes>v0.0.5
+        <releaseNotes>v0.0.6
+DeviceIoControl now using SafeFileHandle.
+
+v0.0.5
 Adding FSCTLs constants.
 Adding PREVENT_MEDIA_REMOVAL.
 
