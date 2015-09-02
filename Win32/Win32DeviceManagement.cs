@@ -63,7 +63,7 @@ namespace SharpLib.Win32
         ///nOutBufferSize: DWORD->unsigned int
         ///lpBytesReturned: LPDWORD->DWORD*
         ///lpOverlapped: LPOVERLAPPED->_OVERLAPPED*
-        [System.Runtime.InteropServices.DllImportAttribute("kernel32.dll", EntryPoint = "DeviceIoControl")]
+        [System.Runtime.InteropServices.DllImportAttribute("kernel32.dll", EntryPoint = "DeviceIoControl", SetLastError = true)]
         [return: System.Runtime.InteropServices.MarshalAsAttribute(System.Runtime.InteropServices.UnmanagedType.Bool)]
         public static extern bool DeviceIoControl(
             [System.Runtime.InteropServices.InAttribute()] SafeFileHandle hDevice,
