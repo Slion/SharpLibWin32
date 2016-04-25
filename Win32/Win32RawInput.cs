@@ -153,6 +153,11 @@ namespace SharpLib.Win32
 	    /// </summary>
         public const uint RIDEV_REMOVE = 0x00000001;
 
+        /// <summary>
+        /// This value can be taken by RAWKEYBOARD.MakeCode.
+        /// </summary>
+        public const ushort KEYBOARD_OVERRUN_MAKE_CODE = 0x00FF;
+
         public const int APPCOMMAND_BROWSER_BACKWARD = 1;
         public const int APPCOMMAND_VOLUME_MUTE = 8;
         public const int APPCOMMAND_VOLUME_DOWN = 9;
@@ -214,6 +219,152 @@ namespace SharpLib.Win32
         /// </summary>
         RIDI_PREPARSEDDATA = 0x20000005
     }
+
+    /// <summary>
+    /// See RAWKEYBOARD.Flags
+    /// </summary>
+    public enum RawInputKeyFlag : ushort
+    {
+        /// <summary>
+        /// The key is down.
+        /// </summary>
+        RI_KEY_MAKE = 0x0000,
+
+        /// <summary>
+        /// The key is up.
+        /// </summary>
+        RI_KEY_BREAK = 0x0001,
+
+        /// <summary>
+        /// The scan code has the E0 prefix.
+        /// </summary>
+        RI_KEY_E0 = 0x0002,
+
+        /// <summary>
+        /// The scan code has the E1 prefix.
+        /// </summary>
+        RI_KEY_E1 = 0x0004
+    }
+
+
+    /// <summary>
+    /// See RAWMOUSE.usFlags.
+    /// </summary>
+    public enum RawInputMouseFlag : ushort
+    {
+        /// <summary>
+        /// Mouse movement data is relative to the last mouse position.
+        /// </summary>
+        MOUSE_MOVE_RELATIVE = 0,
+
+        /// <summary>
+        /// Mouse movement data is based on absolute position.
+        /// </summary>
+        MOUSE_MOVE_ABSOLUTE = 1,
+
+        /// <summary>
+        /// Mouse coordinates are mapped to the virtual desktop (for a multiple monitor system).
+        /// </summary>
+        MOUSE_VIRTUAL_DESKTOP = 0x02,
+
+        /// <summary>
+        /// Mouse attributes changed; application needs to query the mouse attributes.
+        /// </summary>
+        MOUSE_ATTRIBUTES_CHANGED = 0x04
+    }
+
+
+    /// <summary>
+    /// Value taken by RAWMOUSE.ulButtons.
+    /// </summary>
+    public enum RawInputMouseButtonFlag : ushort
+    {
+        /// <summary>
+        /// Left button changed to down.
+        /// </summary>
+        RI_MOUSE_LEFT_BUTTON_DOWN = 0x0001,
+
+        /// <summary>
+        /// Left button changed to up.
+        /// </summary>
+        RI_MOUSE_LEFT_BUTTON_UP = 0x0002,
+
+        /// <summary>
+        /// Middle button changed to down.
+        /// </summary>
+        RI_MOUSE_MIDDLE_BUTTON_DOWN = 0x0010,
+
+        /// <summary>
+        /// Middle button changed to up.
+        /// </summary>
+        RI_MOUSE_MIDDLE_BUTTON_UP = 0x0020,
+
+        /// <summary>
+        /// Right button changed to down.
+        /// </summary>
+        RI_MOUSE_RIGHT_BUTTON_DOWN = 0x0004,
+
+        /// <summary>
+        /// Right button changed to up.
+        /// </summary>
+        RI_MOUSE_RIGHT_BUTTON_UP = 0x0008,
+
+        /// <summary>
+        /// See RI_MOUSE_LEFT_BUTTON_DOWN
+        /// </summary>
+        RI_MOUSE_BUTTON_1_DOWN = 0x0001,
+
+        /// <summary>
+        /// See RI_MOUSE_LEFT_BUTTON_UP
+        /// </summary>
+        RI_MOUSE_BUTTON_1_UP = 0x0002,
+
+        /// <summary>
+        /// See RI_MOUSE_RIGHT_BUTTON_DOWN
+        /// </summary>
+        RI_MOUSE_BUTTON_2_DOWN = 0x0004,
+
+        /// <summary>
+        /// See RI_MOUSE_RIGHT_BUTTON_UP
+        /// </summary>
+        RI_MOUSE_BUTTON_2_UP = 0x0008,
+
+        /// <summary>
+        /// See RI_MOUSE_MIDDLE_BUTTON_DOWN
+        /// </summary>
+        RI_MOUSE_BUTTON_3_DOWN = 0x0010,
+
+        /// <summary>
+        /// See RI_MOUSE_MIDDLE_BUTTON_UP
+        /// </summary>
+        RI_MOUSE_BUTTON_3_UP = 0x0020,
+
+        /// <summary>
+        /// XBUTTON1 changed to down.
+        /// </summary>        
+        RI_MOUSE_BUTTON_4_DOWN = 0x0040,
+
+        /// <summary>
+        /// XBUTTON1 changed to up.
+        /// </summary>
+        RI_MOUSE_BUTTON_4_UP = 0x0080,
+
+        /// <summary>
+        /// XBUTTON2 changed to down.
+        /// </summary>
+        RI_MOUSE_BUTTON_5_DOWN = 0x100,
+
+        /// <summary>
+        /// XBUTTON2 changed to up.
+        /// </summary>
+        RI_MOUSE_BUTTON_5_UP = 0x0200,
+
+        /// <summary>
+        /// Raw input comes from a mouse wheel.The wheel delta is stored in usButtonData.
+        /// </summary>
+        RI_MOUSE_WHEEL = 0x0400
+    }
+
 
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
