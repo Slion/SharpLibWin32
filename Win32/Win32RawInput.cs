@@ -26,12 +26,12 @@ namespace SharpLib.Win32
     static public partial class Function
     {
         [DllImport("User32.dll", SetLastError = true)]
-		public extern static bool RegisterRawInputDevices(RAWINPUTDEVICE[] pRawInputDevice, uint uiNumDevices, uint cbSize);
+        public extern static bool RegisterRawInputDevices(RAWINPUTDEVICE[] pRawInputDevice, uint uiNumDevices, uint cbSize);
 
         [DllImport("User32.dll", SetLastError = true)]
-		public extern static uint GetRawInputData(IntPtr hRawInput, uint uiCommand, IntPtr pData, ref uint pcbSize, uint cbSizeHeader);
+        public extern static uint GetRawInputData(IntPtr hRawInput, uint uiCommand, IntPtr pData, ref uint pcbSize, uint cbSizeHeader);
 
-   		[DllImport("User32.dll", SetLastError=true)]
+        [DllImport("User32.dll", SetLastError = true)]
         public extern static int GetRawInputDeviceInfo(IntPtr hDevice, RawInputDeviceInfoType uiCommand, IntPtr pData, ref uint pcbSize);
 
         [DllImport("user32.dll", SetLastError = true)]
@@ -102,58 +102,6 @@ namespace SharpLib.Win32
         public const int RIM_INPUTSINK = 1;
 
         /// <summary>
-        /// If set, the application command keys are handled. RIDEV_APPKEYS can be specified only if RIDEV_NOLEGACY is specified for a keyboard device.
-        /// </summary>
-        public const uint RIDEV_APPKEYS = 0x00000400;
-
-        /// <summary>
-        /// If set, the mouse button click does not activate the other window.
-        /// </summary>
-	    public const uint RIDEV_CAPTUREMOUSE = 0x00000200;
-        
-        /// <summary>
-        /// If set, this enables the caller to receive WM_INPUT_DEVICE_CHANGE notifications for device arrival and device removal.
-        /// Windows XP:  This flag is not supported until Windows Vista
-        /// </summary>
-	    public const uint RIDEV_DEVNOTIFY = 0x00002000;
-
-        /// <summary>
-        /// If set, this specifies the top level collections to exclude when reading a complete usage page. This flag only affects a TLC whose usage page is already specified with RIDEV_PAGEONLY.
-        /// </summary>
-        public const uint RIDEV_EXCLUDE = 0x00000010;
-
-        /// <summary>
-        /// If set, this enables the caller to receive input in the background only if the foreground application does not process it. In other words, if the foreground application is not registered for raw input, then the background application that is registered will receive the input.
-        /// Windows XP:  This flag is not supported until Windows Vista
-        /// </summary>
-	    public const uint RIDEV_EXINPUTSINK = 0x00001000;
-
-        /// <summary>
-        /// If set, this enables the caller to receive the input even when the caller is not in the foreground. Note that hwndTarget must be specified.
-        /// </summary>
-	    public const uint RIDEV_INPUTSINK = 0x00000100;
-
-	    /// <summary>
-	    /// If set, the application-defined keyboard device hotkeys are not handled. However, the system hotkeys; for example, ALT+TAB and CTRL+ALT+DEL, are still handled. By default, all keyboard hotkeys are handled. RIDEV_NOHOTKEYS can be specified even if RIDEV_NOLEGACY is not specified and hwndTarget is NULL.
-	    /// </summary>
-        public const uint RIDEV_NOHOTKEYS = 0x00000200;
-
-        /// <summary>
-        /// If set, this prevents any devices specified by usUsagePage or usUsage from generating legacy messages. This is only for the mouse and keyboard. See Remarks.
-        /// </summary>
-        public const uint RIDEV_NOLEGACY = 0x00000030;
-        
-        /// <summary>
-        /// If set, this specifies all devices whose top level collection is from the specified usUsagePage. Note that usUsage must be zero. To exclude a particular top level collection, use RIDEV_EXCLUDE.
-        /// </summary>
-        public const uint RIDEV_PAGEONLY = 0x00000020;
-
-	    /// <summary>
-        /// If set, this removes the top level collection from the inclusion list. This tells the operating system to stop reading from a device which matches the top level collection.
-	    /// </summary>
-        public const uint RIDEV_REMOVE = 0x00000001;
-
-        /// <summary>
         /// This value can be taken by RAWKEYBOARD.MakeCode.
         /// </summary>
         public const ushort KEYBOARD_OVERRUN_MAKE_CODE = 0x00FF;
@@ -177,8 +125,71 @@ namespace SharpLib.Win32
         public const int FAPPCOMMAND_MASK = 0xF000;
         public const int FAPPCOMMAND_MOUSE = 0x8000;
         public const int FAPPCOMMAND_KEY = 0;
-		public const int FAPPCOMMAND_OEM = 0x1000;
+        public const int FAPPCOMMAND_OEM = 0x1000;
     }
+
+
+    /// <summary>
+    /// Mode flag that specifies how to interpret the information provided by usUsagePage and usUsage.
+    /// It can be zero (the default) or one of the following values.
+    /// By default, the operating system sends raw input from devices with the specified top level collection (TLC) to the registered application as long as it has the window focus.
+    /// </summary>
+    [Flags]
+    public enum RawInputDeviceFlags : uint
+    {
+        /// <summary>
+        /// If set, the application command keys are handled. RIDEV_APPKEYS can be specified only if RIDEV_NOLEGACY is specified for a keyboard device.
+        /// </summary>
+        RIDEV_APPKEYS = 0x00000400,
+
+        /// <summary>
+        /// If set, the mouse button click does not activate the other window.
+        /// </summary>
+        RIDEV_CAPTUREMOUSE = 0x00000200,
+
+        /// <summary>
+        /// If set, this enables the caller to receive WM_INPUT_DEVICE_CHANGE notifications for device arrival and device removal.
+        /// Windows XP:  This flag is not supported until Windows Vista
+        /// </summary>
+        RIDEV_DEVNOTIFY = 0x00002000,
+
+        /// <summary>
+        /// If set, this specifies the top level collections to exclude when reading a complete usage page. This flag only affects a TLC whose usage page is already specified with RIDEV_PAGEONLY.
+        /// </summary>
+        RIDEV_EXCLUDE = 0x00000010,
+
+        /// <summary>
+        /// If set, this enables the caller to receive input in the background only if the foreground application does not process it. In other words, if the foreground application is not registered for raw input, then the background application that is registered will receive the input.
+        /// Windows XP:  This flag is not supported until Windows Vista
+        /// </summary>
+        RIDEV_EXINPUTSINK = 0x00001000,
+
+        /// <summary>
+        /// If set, this enables the caller to receive the input even when the caller is not in the foreground. Note that hwndTarget must be specified.
+        /// </summary>
+        RIDEV_INPUTSINK = 0x00000100,
+
+        /// <summary>
+        /// If set, the application-defined keyboard device hotkeys are not handled. However, the system hotkeys; for example, ALT+TAB and CTRL+ALT+DEL, are still handled. By default, all keyboard hotkeys are handled. RIDEV_NOHOTKEYS can be specified even if RIDEV_NOLEGACY is not specified and hwndTarget is NULL.
+        /// </summary>
+        RIDEV_NOHOTKEYS = 0x00000200,
+
+        /// <summary>
+        /// If set, this prevents any devices specified by usUsagePage or usUsage from generating legacy messages. This is only for the mouse and keyboard. See Remarks.
+        /// </summary>
+        RIDEV_NOLEGACY = 0x00000030,
+
+        /// <summary>
+        /// If set, this specifies all devices whose top level collection is from the specified usUsagePage. Note that usUsage must be zero. To exclude a particular top level collection, use RIDEV_EXCLUDE.
+        /// </summary>
+        RIDEV_PAGEONLY = 0x00000020,
+
+        /// <summary>
+        /// If set, this removes the top level collection from the inclusion list. This tells the operating system to stop reading from a device which matches the top level collection.
+        /// </summary>
+        RIDEV_REMOVE = 0x00000001
+    }
+
 
     /// <summary>
     /// Introduced this enum for consistency and easy of use.
@@ -206,7 +217,7 @@ namespace SharpLib.Win32
     /// </summary>
     public enum RawInputDeviceInfoType : uint
     {
-         /// <summary>
+        /// <summary>
         /// GetRawInputDeviceInfo pData points to a string that contains the device name.
         /// </summary>
         RIDI_DEVICENAME = 0x20000007,
@@ -223,7 +234,8 @@ namespace SharpLib.Win32
     /// <summary>
     /// See RAWKEYBOARD.Flags
     /// </summary>
-    public enum RawInputKeyFlag : ushort
+    [Flags]
+    public enum RawInputKeyFlags : ushort
     {
         /// <summary>
         /// The key is down.
@@ -250,7 +262,8 @@ namespace SharpLib.Win32
     /// <summary>
     /// See RAWMOUSE.usFlags.
     /// </summary>
-    public enum RawInputMouseFlag : ushort
+    [Flags]
+    public enum RawInputMouseFlags : ushort
     {
         /// <summary>
         /// Mouse movement data is relative to the last mouse position.
@@ -275,9 +288,10 @@ namespace SharpLib.Win32
 
 
     /// <summary>
-    /// Value taken by RAWMOUSE.ulButtons.
+    /// Value taken by RAWMOUSEBUTTONS.usButtonFlags.
     /// </summary>
-    public enum RawInputMouseButtonFlag : ushort
+    [Flags]
+    public enum RawInputMouseButtonFlags : ushort
     {
         /// <summary>
         /// Left button changed to down.
@@ -382,7 +396,7 @@ namespace SharpLib.Win32
         [MarshalAs(UnmanagedType.U2)]
         public ushort usUsage;
         [MarshalAs(UnmanagedType.U4)]
-        public uint dwFlags;
+        public RawInputDeviceFlags dwFlags;
         public IntPtr hwndTarget;
     }
 
@@ -413,10 +427,10 @@ namespace SharpLib.Win32
 
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public struct BUTTONSSTR
+    public struct RAWMOUSEBUTTONS
     {
         [MarshalAs(UnmanagedType.U2)]
-        public ushort usButtonFlags;
+        public RawInputMouseButtonFlags usButtonFlags;
         [MarshalAs(UnmanagedType.U2)]
         public ushort usButtonData;
     }
@@ -427,12 +441,12 @@ namespace SharpLib.Win32
     {
         [MarshalAs(UnmanagedType.U2)]
         [FieldOffset(0)]
-        public ushort usFlags;
+        public RawInputMouseFlags usFlags;
         [MarshalAs(UnmanagedType.U4)]
         [FieldOffset(4)]
         public uint ulButtons;
         [FieldOffset(4)]
-        public BUTTONSSTR buttonsStr;
+        public RAWMOUSEBUTTONS buttonsStr;
         [MarshalAs(UnmanagedType.U4)]
         [FieldOffset(8)]
         public uint ulRawButtons;
@@ -453,7 +467,7 @@ namespace SharpLib.Win32
         [MarshalAs(UnmanagedType.U2)]
         public ushort MakeCode;
         [MarshalAs(UnmanagedType.U2)]
-        public ushort Flags;
+        public RawInputKeyFlags Flags;
         [MarshalAs(UnmanagedType.U2)]
         public ushort Reserved;
         [MarshalAs(UnmanagedType.U2)]
