@@ -2,15 +2,18 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SharpLibWin32</id>
-        <version>0.0.9</version>
-        <title>C# Win32 Library</title>
+        <version>0.1.0</version>
+        <title>Win32 APIs .NET Library</title>
         <authors>Stéphane Lenclud</authors>
         <owners>Stéphane Lenclud</owners>
         <licenseUrl>http://www.gnu.org/copyleft/gpl.html</licenseUrl>
-        <projectUrl>https://sharplibwin32.codeplex.com/</projectUrl>
+        <projectUrl>https://github.com/Slion/SharpLibWin32</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>C# Win32 Library.</description>
-        <releaseNotes>v0.0.9
+        <description>Expose Win32 APIs for .NET applications.</description>
+        <releaseNotes>v0.1.0
+Switching to Any CPU build.
+		
+v0.0.9
 Using flags attribute on some raw input enumerations.
 
 v0.0.8
@@ -40,9 +43,9 @@ v0.0.1
 First contribution.</releaseNotes>
         <copyright>Stéphane Lenclud</copyright>
         <language />
-        <tags>Win32 API Invoke PInvoke Interop</tags>
+        <tags>Win32 API Invoke PInvoke Platform Interop</tags>
     </metadata>
     <files>
-        <file src="bin\x86\Release\SharpLibWin32.dll" target="lib\net20\SharpLibWin32.dll" />
+        <file src="..\Project\bin\Release\SharpLibWin32.dll" target="lib\net20\SharpLibWin32.dll" />
     </files>
 </package>
