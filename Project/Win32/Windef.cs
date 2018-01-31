@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace SharpLib.Win32
@@ -7,6 +8,7 @@ namespace SharpLib.Win32
     /// <summary>
     /// The RECT structure defines a rectangle by the coordinates of its upper-left and lower-right corners.
     /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
     public struct RECT
     {
         /// <summary>

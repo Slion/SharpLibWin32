@@ -22,14 +22,14 @@ namespace SharpLib.Win32
         public static extern int GetClassName(IntPtr hwnd, StringBuilder lpClassName, int nMaxCount);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
-        internal static extern IntPtr SetWindowsHookEx(HookType code, HOOKPROC func, IntPtr hInstance, int threadID);
+        public static extern IntPtr SetWindowsHookEx(HookType code, HOOKPROC func, IntPtr hInstance, int threadID);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool UnhookWindowsHookEx(IntPtr hhook);
+        public static extern bool UnhookWindowsHookEx(IntPtr hhook);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = false)]
-        internal static extern int CallNextHookEx(IntPtr hhook, int code, IntPtr wParam, IntPtr lParam);
+        public static extern int CallNextHookEx(IntPtr hhook, int code, IntPtr wParam, IntPtr lParam);
 
     }
 
@@ -67,6 +67,16 @@ namespace SharpLib.Win32
         WH_KEYBOARD_LL = 13,
         /// <value>14</value>
         WH_MOUSE_LL = 14
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct CWPRETSTRUCT
+    {
+        IntPtr lResult;
+        IntPtr lParam;
+        IntPtr wParam;
+        uint message;
+        IntPtr hWnd;
     }
 
 }
