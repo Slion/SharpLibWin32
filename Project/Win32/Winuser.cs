@@ -72,11 +72,11 @@ namespace SharpLib.Win32
     [StructLayout(LayoutKind.Sequential)]
     public struct CWPRETSTRUCT
     {
-        IntPtr lResult;
-        IntPtr lParam;
-        IntPtr wParam;
-        uint message;
-        IntPtr hWnd;
+        public IntPtr lResult;
+        public IntPtr lParam;
+        public IntPtr wParam;
+        public uint message;
+        public IntPtr hWnd;
     }
 
 }
