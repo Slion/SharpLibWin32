@@ -30,7 +30,20 @@ namespace SharpLib.Win32
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = false)]
         public static extern int CallNextHookEx(IntPtr hhook, int code, IntPtr wParam, IntPtr lParam);
+    }
 
+    static public partial class Const
+    {
+        public const int HCBT_MOVESIZE = 0;
+        public const int HCBT_MINMAX = 1;
+        public const int HCBT_QS = 2;
+        public const int HCBT_CREATEWND = 3;
+        public const int HCBT_DESTROYWND = 4;
+        public const int HCBT_ACTIVATE = 5;
+        public const int HCBT_CLICKSKIPPED = 6;
+        public const int HCBT_KEYSKIPPED = 7;
+        public const int HCBT_SYSCOMMAND = 8;
+        public const int HCBT_SETFOCUS = 9;
     }
 
     /// Hook Types.
