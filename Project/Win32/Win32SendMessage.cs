@@ -13,9 +13,10 @@ namespace SharpLib.Win32
         ///wParam: WPARAM->UINT_PTR->unsigned int
         ///lParam: LPARAM->LONG_PTR->int
         [DllImportAttribute("user32.dll", CharSet = CharSet.Auto)]
-        [return: MarshalAsAttribute(UnmanagedType.SysInt)]
-        public static extern int SendMessage([InAttribute()] IntPtr hWnd, uint Msg, [MarshalAsAttribute(UnmanagedType.SysUInt)] uint wParam, [MarshalAsAttribute(UnmanagedType.SysInt)] int lParam);
+        public static extern int SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 
+        [DllImportAttribute("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int SendMessage(IntPtr hWnd, uint Msg, UIntPtr wParam, IntPtr lParam);
 
     }
 }
