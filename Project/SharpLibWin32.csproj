@@ -58,6 +58,8 @@
     <Compile Include="Win32\Win32DeviceManagement.cs" />
     <Compile Include="Win32\Win32Fsctls.cs" />
     <Compile Include="Win32\Win32Ioctls.cs" />
+    <Compile Include="Win32\Win32SendMessage.cs" />
+    <Compile Include="Win32\Win32SystemCommands.cs" />
     <Compile Include="Win32\Win32WindowMessages.cs" />
     <Compile Include="Win32\Win32AppCommand.cs" />
     <Compile Include="Win32\Win32CreateFile.cs" />

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SharpLibWin32</id>
-        <version>0.1.5</version>
+        <version>0.1.6</version>
         <title>Win32 APIs .NET Library</title>
         <authors>Stéphane Lenclud</authors>
         <owners>Stéphane Lenclud</owners>
@@ -10,7 +10,10 @@
         <projectUrl>https://github.com/Slion/SharpLibWin32</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Expose Win32 APIs for .NET applications.</description>
-        <releaseNotes>v0.1.5
+        <releaseNotes>v0.1.6
+Adding SendMessage and system commands.
+
+v0.1.5
 Adding HCBT constants.
 
 v0.1.4
@@ -22,12 +25,12 @@ Adding CWPRETSTRUCT definition.
 v0.1.2
 Adding hook support definitions.
 
-v0.1.1        
+v0.1.1
 Added: RECT, GetWindowRect, MoveWindow, GetActiveWindow and GetClassName.
 
 v0.1.0
 Switching to Any CPU build.
-		
+
 v0.0.9
 Using flags attribute on some raw input enumerations.
 
