@@ -409,8 +409,7 @@ namespace SharpLib.Win32
         [MarshalAs(UnmanagedType.U4)]
         public int dwSize;
         public IntPtr hDevice;
-        [MarshalAs(UnmanagedType.U4)]
-        public int wParam;
+        public IntPtr wParam;
     }
 
 
