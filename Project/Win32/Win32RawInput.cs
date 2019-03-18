@@ -444,29 +444,26 @@ namespace SharpLib.Win32
         public ushort usButtonData;
     }
 
-
-    [StructLayout(LayoutKind.Explicit, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct RAWMOUSE
     {
-        [MarshalAs(UnmanagedType.U2)]
-        [FieldOffset(0)]
-        public RawInputMouseFlags usFlags;
-        [MarshalAs(UnmanagedType.U4)]
-        [FieldOffset(4)]
-        public uint ulButtons;
-        [FieldOffset(4)]
-        public RAWMOUSEBUTTONS buttonsStr;
-        [MarshalAs(UnmanagedType.U4)]
-        [FieldOffset(8)]
+        public SharpLib.Win32.RawInputMouseFlags usFlags;
+
+        [StructLayout(LayoutKind.Explicit)]
+        public struct RAWMOUSEDATA
+        {
+            [FieldOffset(0)]
+            public uint ulButtons;
+
+            [FieldOffset(0)]
+            public RAWMOUSEBUTTONS buttonsStr;
+        }
+
+        public RAWMOUSEDATA mouseData;
+
         public uint ulRawButtons;
-        [MarshalAs(UnmanagedType.U4)]
-        [FieldOffset(12)]
         public int lLastX;
-        [MarshalAs(UnmanagedType.U4)]
-        [FieldOffset(16)]
         public int lLastY;
-        [MarshalAs(UnmanagedType.U4)]
-        [FieldOffset(20)]
         public uint ulExtraInformation;
     }
 
