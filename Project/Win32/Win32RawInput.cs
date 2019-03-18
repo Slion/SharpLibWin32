@@ -412,6 +412,16 @@ namespace SharpLib.Win32
         public IntPtr wParam;
     }
 
+    [StructLayout(LayoutKind.Explicit, Pack = 1)]
+    public struct RAWINPUTDATA
+    {
+        [FieldOffset(0)]
+        public RAWMOUSE mouse;
+        [FieldOffset(0)]
+        public RAWKEYBOARD keyboard;
+        [FieldOffset(0)]
+        public RAWHID hid;
+    }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct RAWHID
@@ -478,17 +488,11 @@ namespace SharpLib.Win32
     }
 
 
-    [StructLayout(LayoutKind.Explicit, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct RAWINPUT
     {
-        [FieldOffset(0)]
         public RAWINPUTHEADER header;
-        [FieldOffset(16)]
-        public RAWMOUSE mouse;
-        [FieldOffset(16)]
-        public RAWKEYBOARD keyboard;
-        [FieldOffset(16)]
-        public RAWHID hid;
+        public RAWINPUTDATA data;
     }
 
 
