@@ -262,7 +262,7 @@ namespace SharpLib.Win32
     /// <summary>
     /// 
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Pack = 1)]
+    [StructLayout(LayoutKind.Explicit)]
     public struct HIDP_BUTTON_CAPS
     {
         /// USAGE->USHORT->unsigned short
@@ -395,7 +395,7 @@ namespace SharpLib.Win32
     /// <summary>
     /// 
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Pack = 1)]
+    [StructLayout(LayoutKind.Explicit)]
     public struct HIDP_VALUE_CAPS
     {
 

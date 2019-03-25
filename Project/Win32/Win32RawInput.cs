@@ -387,8 +387,7 @@ namespace SharpLib.Win32
         public RawInputDeviceType dwType;
     }
 
-    // TODO: Consider removing those Pack = 1
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct RAWINPUTDEVICE
     {
         [MarshalAs(UnmanagedType.U2)]
@@ -401,7 +400,7 @@ namespace SharpLib.Win32
     }
 
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct RAWINPUTHEADER
     {
         [MarshalAs(UnmanagedType.U4)]
@@ -412,7 +411,7 @@ namespace SharpLib.Win32
         public IntPtr wParam;
     }
 
-    [StructLayout(LayoutKind.Explicit, Pack = 1)]
+    [StructLayout(LayoutKind.Explicit)]
     public struct RAWINPUTDATA
     {
         [FieldOffset(0)]
@@ -423,7 +422,7 @@ namespace SharpLib.Win32
         public RAWHID hid;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct RAWHID
     {
         [MarshalAs(UnmanagedType.U4)]
@@ -435,7 +434,7 @@ namespace SharpLib.Win32
     }
 
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct RAWMOUSEBUTTONS
     {
         [MarshalAs(UnmanagedType.U2)]
@@ -444,7 +443,7 @@ namespace SharpLib.Win32
         public ushort usButtonData;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct RAWMOUSE
     {
         public SharpLib.Win32.RawInputMouseFlags usFlags;
@@ -467,7 +466,7 @@ namespace SharpLib.Win32
         public uint ulExtraInformation;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct RAWKEYBOARD
     {
         [MarshalAs(UnmanagedType.U2)]
@@ -485,7 +484,7 @@ namespace SharpLib.Win32
     }
 
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct RAWINPUT
     {
         public RAWINPUTHEADER header;
@@ -493,7 +492,7 @@ namespace SharpLib.Win32
     }
 
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct RID_DEVICE_INFO_MOUSE
     {
         public uint dwId;
@@ -503,7 +502,7 @@ namespace SharpLib.Win32
     }
 
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct RID_DEVICE_INFO_KEYBOARD
     {
         public uint dwType;
@@ -514,7 +513,7 @@ namespace SharpLib.Win32
         public uint dwNumberOfKeysTotal;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct RID_DEVICE_INFO_HID
     {
         public uint dwVendorId;
@@ -524,7 +523,7 @@ namespace SharpLib.Win32
         public ushort usUsage;
     }
 
-    [StructLayout(LayoutKind.Explicit, Pack = 1)]
+    [StructLayout(LayoutKind.Explicit)]
     public struct RID_DEVICE_INFO
     {
         [FieldOffset(0)]
