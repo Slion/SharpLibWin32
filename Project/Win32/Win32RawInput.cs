@@ -37,7 +37,7 @@ namespace SharpLib.Win32
         [DllImport("user32.dll", SetLastError = true)]
         public static extern int GetRawInputDeviceList(
             [In, Out] RAWINPUTDEVICELIST[] InputdeviceList,
-            [In, Out] ref uint puiNumDevices,
+            [In] ref uint puiNumDevices,
             [In] uint cbSize);
 
     }
@@ -379,15 +379,15 @@ namespace SharpLib.Win32
         RI_MOUSE_WHEEL = 0x0400
     }
 
-
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    
+    [StructLayout(LayoutKind.Sequential)]
     public struct RAWINPUTDEVICELIST
     {
         public IntPtr hDevice;
         public RawInputDeviceType dwType;
     }
 
+    // TODO: Consider removing those Pack = 1
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct RAWINPUTDEVICE
     {
