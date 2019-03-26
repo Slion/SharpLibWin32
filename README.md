@@ -1,5 +1,5 @@
 [![NuGet Badge](https://buildstats.info/nuget/SharpLibWin32)](https://www.nuget.org/packages/SharpLibWin32/)
-<img align="right" src="https://slions.visualstudio.com/_apis/public/build/definitions/ad16bbd0-a884-4787-8e3a-85daf30cca16/8/badge" />
+[![Build status](https://slions.visualstudio.com/GitHub%20builds/_apis/build/status/SharpLibWin32)](https://slions.visualstudio.com/GitHub%20builds/_build/latest?definitionId=8)
 
 # SharpLibWin32
 
