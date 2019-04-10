@@ -76,6 +76,7 @@ First contribution.</releaseNotes>
         <tags>Win32 API Invoke PInvoke Platform Interop</tags>
     </metadata>
     <files>
+        <file src="..\Project\bin\Release\net20\SharpLibWin32.dll" target="lib\net20\SharpLibWin32.dll" />
         <file src="..\Project\bin\Release\netstandard2.0\SharpLibWin32.dll" target="lib\netstandard2.0\SharpLibWin32.dll" />
     </files>
 </package>
