@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SharpLibWin32</id>
-        <version>0.2.0</version>
+        <version>0.2.1</version>
         <title>Win32 APIs .NET Library</title>
         <authors>Stéphane Lenclud</authors>
         <owners>Stéphane Lenclud</owners>
@@ -10,7 +10,11 @@
         <projectUrl>https://github.com/Slion/SharpLibWin32</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Expose Win32 APIs for .NET applications.</description>
-        <releaseNotes>v0.2.0
+        <releaseNotes>
+v0.2.1
+Adding support for netstandard2.0
+
+v0.2.0
 Removed all Pack statements for better 64 bits compatibility.
 
 v0.1.9
