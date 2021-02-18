@@ -5,6 +5,8 @@
 
 SharpLibWin32 is a .NET library exposing Platform Invoke declarations for some Win32 API functions, data structures, macros and constants.
 
+⚠️ Consider using [Dotnet Pinvoke](https://github.com/dotnet/pinvoke) instead, as SharpLibWin32 is not being maintained. 
+
 # Binary Distribution
 
 The easiest way to make use of this library in your own project is to add a reference to the following [NuGet package](https://www.nuget.org/packages/SharpLibWin32/).
